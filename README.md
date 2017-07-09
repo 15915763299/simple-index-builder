@@ -28,4 +28,10 @@ Memcached要在Windows比较麻烦，给两个参考网站：
 
 #### 3. 运行
 `*.jar` 文件在 `out/artifacts/simple_index_builder_jar` 目录下，用 `MyDatabase.mwb` 生成数据库，然后启动 `Memcached`，最后运行 `simple-index-builder.jar` 
-（cmd: java -jar xxx）
+
+将需要生成索引的数据放在与 `simple-index-builder.jar` 同一文件夹下，然后运行 jar，举例：<br>
+
+        java -jar simple-index-builder.jar ads_data1.txt budget.txt 127.0.0.1 11211 127.0.0.1:3306 searchads root password
+        java -jar simple-index-builder.jar ads_data2.txt budget.txt 127.0.0.1 11212 127.0.0.1:3306 searchads root password
+
+参数依次为：广告文件，价格文件，Memcached Server，Memcached Port，数据库Server：Port，数据库名称，数据库用户，数据库密码
